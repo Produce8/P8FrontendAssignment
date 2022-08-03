@@ -1,0 +1,16 @@
+.navbar {
+    background-color: white;
+    width: 100vw;
+    box-shadow: 0px 5px 25px #bed3f5;
+    border-bottom: 1px solid #bed3f5;
+    z-index: 999;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 55px;
+    width: 100%;
+    cursor: pointer;
+}

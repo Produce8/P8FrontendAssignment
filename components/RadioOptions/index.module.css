@@ -1,0 +1,67 @@
+.container {
+    max-width: 350px;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 11px;
+    color: #a0afba;
+    margin-bottom: 15px;
+}
+
+.wrapper {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 18px;
+    color: black;
+    font-weight: 500;
+    height: 25px;
+    line-height: 25px;
+}
+
+.radio {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.radioUI {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 26px;
+    width: 26px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid #4c3272;
+}
+
+.wrapper .radio:checked ~ .radioUI {
+    background-color: white;
+}
+
+.radioUI:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.wrapper .radio:checked ~ .radioUI:after {
+    display: block;
+}
+
+.wrapper .radioUI:after {
+    top: 4px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #4c3272;
+}

@@ -1,0 +1,17 @@
+.alert {
+    background-color: #f8d7da;
+    position: fixed;
+    width: 100vw;
+    z-index: 9999;
+    height: 30px;
+    top: 0;
+    border: 2px solid #f5c2c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.message {
+    color: #842029;
+}
