@@ -4,7 +4,7 @@ import CtaCard from '../components/CtaCard'
 import Navbar from '../components/Navbar'
 import RadioOptions from '../components/RadioOptions'
 import Slider from '../components/Slider'
-import axios from 'axios'
+import ErrorAlert from '../components/ErrorAlert'
 
 const Home: NextPage = () => {
   const [purchasePrice, setPurchasePrice] = useState(500000)
@@ -12,10 +12,12 @@ const Home: NextPage = () => {
   const [period, setPeriod] = useState(20)
   const [mortgage, setMortgage] = useState(0.0)
   const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     const calculate = async () => {
       try {
+        setError('')
         setIsLoading(true)
         const response = await fetch(`/api/mortgageCalculation?principal=${purchasePrice}&annualInterestRate=${interestRate}&termOfLoan=${period}`, {
           method: 'POST',
@@ -26,12 +28,14 @@ const Home: NextPage = () => {
   
         const {monthlyPayment, error} = await response.json()
         if(error) {
+          setError(error)
           throw error
         } 
   
         setMortgage(monthlyPayment)
         setIsLoading(false)
       } catch (err) {
+        console.log(err)
         setIsLoading(false)
       }
     }
@@ -41,6 +45,7 @@ const Home: NextPage = () => {
   return (
     <div className='content-wrapper'>
       <Navbar />
+      <ErrorAlert show={error !== ''} message={error}/>
       <div className='content'>
         <div className='container mt-10'>
           <div className='header'>
