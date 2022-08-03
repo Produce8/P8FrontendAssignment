@@ -1,0 +1,82 @@
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.card {
+    border-radius: 25px;
+    background-color: white;
+    height: 400px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0px 0px 20px rgb(0 0 0 / 10%);
+    margin-bottom: 50px;
+}
+
+.button {
+    border-radius: 35px;
+    width: 200px;
+    height: 70px;
+    background-color: #4c3272;
+    position: absolute;
+    bottom: -35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-50%);
+    left: 50%;
+    cursor: pointer;
+}
+
+.buttonLabel {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 50px;
+    padding-bottom: 90px;
+}
+
+.header {
+    font-weight: bold;
+    color: #9faeb9;
+}
+
+.sign, .totalNumber, .totalDecimal {
+    color: #3d515b;
+    font-weight: 900;
+    font-size: 40px;
+}
+
+.totalNumber {
+    font-size: 90px;
+    line-height: 90px;
+}
+
+.month {
+    font-weight: bold;
+    color: #9faeb9;
+    font-size: 18px;
+}
+
+.total {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+      margin-top: 50px;
+    }
+}

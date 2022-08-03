@@ -1,0 +1,87 @@
+.container {
+    max-width: 350px;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.label {
+    font-weight: 500;
+    font-size: 11px;
+    color: #a0afba;
+}
+
+.value {
+    display: flex;
+    width: 100%;
+}
+
+.dollar {
+    font-weight: 600;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+.percent {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+
+.amount {
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.sliderWrapper {
+    width: 100%;
+    position: relative;
+}
+
+.slider {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 2px;
+    background: #d3d3d3;
+    outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 10px;
+    border: 2px solid #2770db;
+    cursor: pointer;
+    position: relative;
+}
+
+.sliderProgress {
+    position: absolute;
+    height: 4px;
+    background-color: #2770db;
+    bottom: 3px;
+}
+
+.footerLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    
+}
+
+.footerLabel span{
+    color: #a0afba !important;
+}
+
+@media screen and (max-width: 900px) {
+    .container {
+        max-width: 100%;
+    }
+}
