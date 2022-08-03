@@ -76,6 +76,10 @@
     justify-content: flex-start;
 }
 
+.loader {
+    font-size: 30px;
+}
+
 @media screen and (max-width: 450px) {
     .totalNumber {
        font-size: 70px;

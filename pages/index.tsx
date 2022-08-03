@@ -58,7 +58,7 @@ const Home: NextPage = () => {
               </div>
             </div>
             <div className='total'>
-                <CtaCard mortgage={mortgage}/>
+                <CtaCard mortgage={mortgage} isLoading={isLoading}/>
             </div>
           </div>
         </div>

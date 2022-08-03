@@ -32,7 +32,7 @@ const Slider: FunctionComponent<Props> = ({label, options, onChange}) => {
         </div>
         <div className={styles.sliderWrapper}>
             <div className={styles.sliderProgress} style={{width: `${(value/options.max) * 100}%`}}></div>
-            <input className={styles.slider} type="range" min={options.min} max={options.max} value={value} onChange={(e) => {setValue(parseInt(e.target.value))}} onMouseUp={() => onSliderValueChange()}/>
+            <input className={styles.slider} type="range" min={options.min} max={options.max} value={value} onChange={(e) => {setValue(parseInt(e.target.value))}} onMouseUp={() => onSliderValueChange()} onTouchEnd={() => onSliderValueChange()}/>
         </div>
         <div className={`${styles.footerLabel} mt-1`}>
             <span>{options.labelMin}</span>
