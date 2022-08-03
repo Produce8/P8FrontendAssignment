@@ -80,7 +80,7 @@
     color: #a0afba !important;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 990px) {
     .container {
         max-width: 100%;
     }

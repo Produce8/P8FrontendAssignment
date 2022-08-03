@@ -2,12 +2,10 @@ import styles from './index.module.css';
 import React, { FunctionComponent, useState } from 'react'
 
 type Props = {
-    purchasePrice: number
-    interestRate: number
-    period: number
+    mortgage: number
 }
 
-const CtaCard: FunctionComponent<Props> = ({purchasePrice, interestRate, period}) => {
+const CtaCard: FunctionComponent<Props> = ({mortgage}) => {
     return (
       <div className={styles.container}>
         <div className={styles.card}>
@@ -15,8 +13,8 @@ const CtaCard: FunctionComponent<Props> = ({purchasePrice, interestRate, period}
                 <span className={styles.header}>Your total monthly payment will be</span>
                 <div className={styles.total}>
                     <span className={styles.sign}>$</span>
-                    <span className={styles.totalNumber}>853</span>
-                    <span className={styles.totalDecimal}>50</span>
+                    <span className={styles.totalNumber}>{Number(Math.trunc(mortgage)).toLocaleString()}</span>
+                    <span className={styles.totalDecimal}>{mortgage.toString().split('.')[1]}</span>
                 </div>
                 <span className={styles.month}>/month</span>
             </div>

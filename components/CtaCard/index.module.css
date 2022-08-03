@@ -3,6 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 50px;
 }
 
 .card {
@@ -72,11 +73,11 @@
 .total {
     display: flex;
     flex-direction: row;
-    justify-content: start;
+    justify-content: flex-start;
 }
 
-@media screen and (max-width: 900px) {
-    .container {
-      margin-top: 50px;
+@media screen and (max-width: 450px) {
+    .totalNumber {
+       font-size: 70px;
     }
 }
