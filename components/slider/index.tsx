@@ -20,6 +20,10 @@ const PROGRESS_COLOR = '#115ecf';
 const TO_DO_COLOR = '#d0d5e1';
 
 const Slider: React.FC<SliderProps> = ({ className, children, ...rest }) => {
+    // It does not look like you can style only the progressed side of the slider
+    // with pure css.
+    // (I saw one demo with pure css but it was crazy)
+    // Syncing up a harsh background gradient with js is much simpler.
     const progress = `${Math.abs((rest.value - rest.min) / (rest.max - rest.min)) * 100}%`;
     return (
         <input

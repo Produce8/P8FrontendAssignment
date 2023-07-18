@@ -11,6 +11,8 @@
     align-items: center;
 }
 
+
+/* No, you can't directly style radios. Only Hacks. */
 /* https://stackoverflow.com/a/68003309 */
 .radio {
     border: 5px solid white;
