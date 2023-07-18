@@ -9,6 +9,7 @@ interface RadioListProps {
     className?: string | undefined,
     value: RadioValue,
     options: {
+        id: string,
         label: React.ReactNode,
         value: RadioValue
     }[],
@@ -19,9 +20,10 @@ const RadioList: React.FC<RadioListProps> = ({ className, children, options, val
 
     return (
         <div className={[styles.radioList, className].filter(Boolean).join(' ')}>
-            {options.map((op, i) => (
+            {options.map((op) => (
                 <Radio
-                    key={i}
+                    key={op.id}
+                    id={op.id}
                     label={op.label}
                     value={op.value}
                     checked={Boolean(op.value === value)}
@@ -33,14 +35,19 @@ const RadioList: React.FC<RadioListProps> = ({ className, children, options, val
 };
 
 interface RadioProps {
+    // React strict + NextJS require rendering to not induce side effects.
+    // Therefor, throwaway ID's to match input and label cannot be generated on the fly.
+    // See: https://github.com/chakra-ui/chakra-ui/issues/4328
+    id: string,
     label: React.ReactNode,
     value: RadioValue,
     checked: boolean,
     onChange: (value: RadioValue) => void
 }
 
-const Radio: React.FC<RadioProps> = ({ label, value, checked, onChange }) => {
-    const [myId] = useState(uuidv4());
+const Radio: React.FC<RadioProps> = ({ id, label, value, checked, onChange }) => {
+    // const [myId] = useState(uuidv4());
+    const myId = id;
     return (
         <>
             <input
