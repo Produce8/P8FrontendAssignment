@@ -19,8 +19,9 @@ const RadioList: React.FC<RadioListProps> = ({ className, children, options, val
 
     return (
         <div className={[styles.radioList, className].filter(Boolean).join(' ')}>
-            {options.map((op) => (
+            {options.map((op, i) => (
                 <Radio
+                    key={i}
                     label={op.label}
                     value={op.value}
                     checked={Boolean(op.value === value)}
