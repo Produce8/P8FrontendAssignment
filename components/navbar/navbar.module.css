@@ -1,0 +1,28 @@
+.navbar {
+    background-color: white;
+    width: 100%;
+}
+
+.inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1em;
+    margin: 0 auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    max-width: var(--max-content-width);
+}
+
+.logo {
+    flex: 0 1;
+    height: 3em;
+}
+
+.menu {
+    flex: 0 0 3em;
+    display: flex;
+    height: 3em;
+}
