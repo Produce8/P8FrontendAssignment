@@ -9,36 +9,45 @@ type Data = {
 type MortgageParams = {
   principal: number;
   annualInterestRate: number;
-  termOfLoan: number; 
+  termOfLoan: number;
+}
+
+// Suppress "API resolved without sending a response"
+// It's firing beause index.html fetches this function serverside
+// https://github.com/vercel/next.js/discussions/40270
+export const config = {
+  api: {
+    externalResolver: true,
+  },
 }
 
 export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-    if(req.method === 'POST'){
-      const {principal, annualInterestRate, termOfLoan} = req.query;
-      const values = calculatePayment({principal: parseInt(principal.toString()), annualInterestRate:parseInt(annualInterestRate.toString()), termOfLoan:parseInt(termOfLoan.toString())});
-      setTimeout(() => {
-        if (values !== "NaN") res.status(200).json({ monthlyPayment: values });
-        else
-          res
-            .status(400)
-            .json({
-              error:
-                "There was a problem calculating your mortgage. Please check your inputs",
-            });
-      }, 1000);
-  }else{
-      res.status(400).json({ error: 'Only accepts POST' })
+  if (req.method === 'POST') {
+    const { principal, annualInterestRate, termOfLoan } = req.query;
+    const values = calculatePayment({ principal: parseInt(principal.toString()), annualInterestRate: parseInt(annualInterestRate.toString()), termOfLoan: parseInt(termOfLoan.toString()) });
+    setTimeout(() => {
+      if (values !== "NaN") res.status(200).json({ monthlyPayment: values });
+      else
+        res
+          .status(400)
+          .json({
+            error:
+              "There was a problem calculating your mortgage. Please check your inputs",
+          });
+    }, 1000);
+  } else {
+    res.status(400).json({ error: 'Only accepts POST' })
   }
 }
 
-function calculatePayment({principal, annualInterestRate, termOfLoan}:MortgageParams) {
-    var percentageRate = annualInterestRate / 1200;
-    var lengthOfLoan = 12 * termOfLoan;
-    var monthlyPayment = (principal * percentageRate) / (1 - (Math.pow((1 + percentageRate) , lengthOfLoan * -1)));
-    const payment = monthlyPayment.toFixed(2);
+function calculatePayment({ principal, annualInterestRate, termOfLoan }: MortgageParams) {
+  var percentageRate = annualInterestRate / 1200;
+  var lengthOfLoan = 12 * termOfLoan;
+  var monthlyPayment = (principal * percentageRate) / (1 - (Math.pow((1 + percentageRate), lengthOfLoan * -1)));
+  const payment = monthlyPayment.toFixed(2);
 
-    return payment;
+  return payment;
 } 
