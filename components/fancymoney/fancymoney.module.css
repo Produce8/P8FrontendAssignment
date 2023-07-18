@@ -1,0 +1,12 @@
+.fancyMoney {
+    display: inline-flex;
+    gap: 0.05em;
+}
+
+.super {
+    font-size: 0.4em;
+}
+
+.bucks {
+    line-height: 0.9em;
+}
